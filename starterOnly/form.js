@@ -1,66 +1,115 @@
 // Form Config
-const form = document.querySelectorAll('form');
+let form = document.querySelector('form');
 
-const firstName = document.getElementById('#first').value;
-const lastName = document.getElementById('#last').value;
-// const mail = document.getElementById('#email').value;
-// const birthDate = document.getElementById('#birthdate').value;
-// const quantity = document.getElementById('#quantity').value;
-
-
-form.addEventListener("submit", (event) {
-    //Supprimer comportement par défaut du btn submit afin d'empécher le rechargement de la page
+// All function control
+form.addEventListener("submit", (event) => {
     event.preventDefault();
+    const firstName = document.getElementById('first');
+    const lastName = document.getElementById('last');
+    const mail = document.getElementById('email');
+    const birthDate = document.getElementById('birthdate');
+    const quantity = document.getElementById('quantity');
+    const radio = document.querySelectorAll('input[type="radio"]');
+    const cgeneral = document.getElementById('checkbox1');
+    const newevent = document.getElementById('checkbox2');
+    
+    
 
-    const firstName = document.getElementById('#first').value;
-    //const lastName = document.getElementById('#last').value;
-    if(firstName != null && value.length >= 2) {
-        console.log('nom valid');
-      } else {
-        document.getElementById('#first').style.color="red";
-        return false;
-      };
+    let inscription;
+    if(newevent.checked === false) {
+      inscription = newevent.value;
+    } else {
+      inscription = newevent.value;
+    }
+    
+
+    let valeur;
+    for(let i = 0; i < radio.length; i++){
+    if(radio[i].checked){
+    valeur = radio[i].value;
+      }
+    }
+    
+
+    if(controlForm(firstName, lastName, mail, birthDate, quantity, valeur, cgeneral, newevent)) {
+      alert('correct');
+    } else {
+      alert('error');
+    }
 });
 
-/*
-function controlForm(firstName, lastName) {
-    
-    if(firstName != null && value.length >= 2) {
-        return true;
-      } else {
-        document.getElementById('#first').style.color="red";
-        return false;
-      };
-      
-    if(lastName != null && value.length >= 2) {
-        return true;
-    } else {
-        document.getElementById('#first').style.color="red";
-        return false;
-    }
-   }
-   console.log(firstName);
-   // Mail
- 
-   // Birthdate
- 
-   // Quantity 
- 
-   // Radio
- */
- 
- 
- //const formData = new FormData(form);
- /*
- const firstname = document.getElementById("first").value;
- const lastname = document.getElementById("last").value;
- 
- function controlForm() {
-   // Control first name 
-   if(firstname=='') {
-     document.getElementById('first').style.color="red";
-     //document.getElementById('last').style.color="red";
-     console.log('first');
-   }
- }*/
+function controlForm(firstName, lastName, mail, birthDate, quantity, valeur, cgeneral) {
+  
+  // FIRST NAME
+  if(firstName.length < 2) {
+    console.log('erreur first');
+    return false;
+  }
+  // LAST NAME
+  if(lastName.lenght < 2) {
+    console.log('erreur last');
+    return false;
+  }
+  // MAIL
+  if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)) {
+    console.log('erreur mail');
+    return false;
+  }
+  // BIRTHDATE
+  if(isNaN(new Date(birthDate.value))) {
+    console.log('erreur annif');
+    return false;
+  }
+  // QUANTITY
+  if(quantity.value === null && isNaN(quantity.value)) {
+    console.log('erreur quantity value');
+    return false;
+  }
+
+  // RADIO BTN
+  switch (valeur) {
+    case 'New York':
+      break;
+    case 'San Francisco':
+      break;
+    case 'Seattle':
+      break;
+    case 'Chicago':
+      break;
+    case 'Boston':
+      break;
+    case 'Portland':
+      break;
+    default:
+      console.log(valeur);
+      return false;
+}
+
+  // CHECKBOX CONDITION GENERALE
+  if(cgeneral.value === null) {
+    return false;
+  }
+
+  // CHECKBOX NEWEVENT
+  
+  
+  console.log(firstName.value);
+  console.log(lastName.value);
+  console.log(mail.value);
+  console.log(birthDate.value);
+  console.log(quantity.value);
+  console.log(cgeneral.value);
+  console.log(valeur);
+  console.log(newevent);
+
+  return true;
+  
+}
+
+ /**
+  * "Veuillez entrer 2 caractères ou plus pour le champ du nom."
+  * "Vous devez choisir une option."
+  * "Vous devez vérifier que vous acceptez les termes et conditions."
+  * "Vous devez entrer votre date de naissance."
+  */
  
