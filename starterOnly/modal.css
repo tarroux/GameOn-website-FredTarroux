@@ -68,6 +68,50 @@ img {
   display: none;
 }
 
+/********************************************************************/
+.errorFirst,
+.errorLast,
+.errorMail,
+.errorBirthdate,
+.errorTournois,
+.errorCGeneral {
+  font-size: 16px;
+  color: #fe142f;
+}
+
+.newEvent {
+  font-size: 16px;
+  color: #025c32;
+}
+
+/* Validation formulaire : Message type alert */
+
+#toast, 
+#alert{
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 9999;
+  display: none;
+}
+
+#toast.show {
+  display: block;
+}
+
+#alert.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
