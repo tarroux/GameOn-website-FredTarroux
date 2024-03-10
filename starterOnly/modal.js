@@ -27,7 +27,8 @@ function launchModal() {
 // close modal event
 close.forEach((span) => span.addEventListener("click", closeModal));
 
-// close modal form 
+// close modal form
 function closeModal() {
+  //export default
   modalbg.style.display = "none";
 }
