@@ -91,7 +91,7 @@ img {
   position: fixed;
   width: 536px;
   height: 800px;
-  top: 20px;
+  top: 0px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #333;
@@ -213,7 +213,7 @@ main {
   position: fixed;
   z-index: 1;
   left: 0;
-  top: 0;
+  top: 47px;
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -566,6 +566,7 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+  
 }
 
 @keyframes modalopen {
