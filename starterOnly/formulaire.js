@@ -126,10 +126,10 @@ function afficherToast() {
     toast.classList.remove("hidden");
     toast.classList.add("show");
 
-    // setTimeout(function () {
-    //   toast.classList.remove("show");
-    //   toast.classList.add("hidden");
-    // }, 10000); // Affiche le toast pendant 5 secondes
+    setTimeout(function () {
+      toast.classList.remove("show");
+      toast.classList.add("hidden");
+    }, 10000); // Affiche le toast pendant 5 secondes
   }
 
   function closeToast() {
