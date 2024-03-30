@@ -23,7 +23,7 @@
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
+      <a href="javascript:void(0);" class="icon"  id="editNavModal">
         <i class="fa fa-bars"></i>
       </a>
     </div>
@@ -53,9 +53,9 @@
       </div>
       <!--Message validate-->
       <div id="toast" class="hidden toast-position">
-        <span class="close" onClick="closeToast()"></span>
+        <span class="close" id="closedSpan"></span><!-- Ne pas laisse l'event dans le html-->
         <p> Merci pour <br/> votre inscription</p>
-        <input class="btn-submit" type="submit" value="Fermer" onClick="closeToast()" />
+        <input class="btn-submit" type="submit" value="Fermer" id="closedButton"/><!-- faire disparaitre a l'aide d'une event listener car il ne faut pas de javascript dans la html-->
       </div>
 
       <div class="bground">

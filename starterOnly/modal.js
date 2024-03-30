@@ -1,3 +1,6 @@
+const editNavModal = document.getElementById("editNavModal");
+editNavModal.addEventListener("click", event => { editNav(event) });
+
 function editNav() {
   // modification de la déclaration de la variable :
   // var changé par let
